@@ -1,0 +1,17 @@
+<p>ルーム新規登録ページ</p>
+<%= form_with model:@room do |room| %>
+  <div class = room_register >
+    <%= room.label :img_data, '画像' %>
+    <%= room.file_field :img_data %>
+    <%= room.label :address, '住所' %>
+    <%= room.text_field :address %>
+    <%= room.label :inn, '施設名' %>
+    <%= room.text_field :inn %>
+    <%= room.label :charge, '料金' %>
+    <%= room.text_field :charge %>
+    <%= room.label :introduction, '紹介文' %>
+    <%= room.text_field :introduction %>
+    <%= room.submit '登録' %>
+  </div>
+<% end %>
+<%= link_to 'トップページに戻る', '/' %>

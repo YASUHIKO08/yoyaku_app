@@ -1,0 +1,11 @@
+<%=link_to 'ルーム新規登録ページ', '/rooms/new' %>
+<% @rooms.each do |room| %>
+  <table class = room_show >
+    <td><%= image_tag(room.img_data) %></td>
+    <td><%= room.address %></td>
+    <td><%= room.inn %></td>
+    <td><%= room.charge %></td>
+    <td><%= room.introduction %></td>
+    <td><%= link_to "今すぐ予約！", room %></td>
+  </table>
+<% end %>
