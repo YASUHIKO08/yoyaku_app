@@ -1,0 +1,9 @@
+<p>予約一覧</p>
+<% @reservations.each do |r| %>
+  <% room = r.room %>
+  <p><%= image_tag(room.img_data) %></p>
+  <p><%= r.check_in %></p>
+  <p><%= r.check_out %></p>
+  <p><%= r.people %></p>
+<% end %>
+<%= link_to 'トップページに戻る', '/' %>

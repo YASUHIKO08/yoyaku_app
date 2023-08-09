@@ -1,11 +1,13 @@
 class RoomsController < ApplicationController
   def index
     @rooms = Room.all
+    @reservations = Reservation.all
   end
 
   def new
     @room = Room.new
   end
+
 
   def create
     @room = Room.new(params.require(:room).permit(:img_data,:inn,:introduction,:charge,:address))
@@ -23,6 +25,7 @@ class RoomsController < ApplicationController
 
   def show
     @room = Room.find(params[:id])
+    @reservation = Reservation.new
   end
 
   def update
