@@ -5,9 +5,10 @@ Rails.application.routes.draw do
   post '/rooms/show'
   get 'reservations/index'
   get 'reservations/new'
+  get 'reservations/show'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :rooms
-  resources :reservations,only: [:index, :new, :create] do
+  resources :reservations do
     collection do
       post:confirm
     end

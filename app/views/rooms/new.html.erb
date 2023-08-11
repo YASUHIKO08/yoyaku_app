@@ -10,6 +10,7 @@
     <%= room.text_field :charge %>
     <%= room.label :introduction, '紹介文' %>
     <%= room.text_field :introduction %>
+    <%= room.hidden_field:user_id, value:current_user.id %>
     <%= room.submit '登録' %>
 <% end %>
 <%= link_to 'トップページに戻る', '/' %>

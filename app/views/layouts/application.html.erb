@@ -14,8 +14,13 @@
     <header class = common_header>
       <%=link_to '宿泊予約サイト', '/',class:'FV_link' %>
     <div class = acount_menu>
-      <%=link_to 'ログイン', '/users/sign_in',class:'users_devise' %>
-      <%=link_to '新規作成', '/users/sign_up',class:'users_devise' %>
+      <% if user_signed_in?%>
+        <p><%= current_user.email %></p>
+        <%= button_to "ログアウト", '/users/sign_out', method: :delete, class:'users_devise'%>
+      <% else %>
+        <%=link_to 'ログイン', '/users/sign_in',class:'users_devise' %>
+        <%=link_to '新規作成', '/users/sign_up',class:'users_devise' %>
+      <% end %>
     </div>
     </header>
     <%= yield %>

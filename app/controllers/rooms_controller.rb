@@ -1,7 +1,6 @@
 class RoomsController < ApplicationController
   def index
-    @rooms = Room.all
-    @reservations = Reservation.all
+    @rooms = current_user.rooms
   end
 
   def new
@@ -10,9 +9,10 @@ class RoomsController < ApplicationController
 
 
   def create
-    @room = Room.new(params.require(:room).permit(:img_data,:inn,:introduction,:charge,:address))
+    @room = Room.new(room_params)
+    @room.user_id = current_user.id
     binding.pry
-    if @room.save
+    if @room.save!
       redirect_to :rooms
     else
       render "new"
@@ -30,7 +30,7 @@ class RoomsController < ApplicationController
 
   def update
     @room = Room.find(params[:id])
-    if @room.update(params.require(:room).permit(:img_data,:inn,:introduction,:charge,:address))
+    if @room.update(room_params)
       redirect_to :rooms
     else
       render "edit"
@@ -38,5 +38,9 @@ class RoomsController < ApplicationController
   end
 
   def destroy
+  end
+
+  def room_params
+    params.require(:room).permit(:img_data,:inn,:introduction,:charge,:address)
   end
 end

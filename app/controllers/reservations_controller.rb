@@ -1,6 +1,7 @@
 class ReservationsController < ApplicationController
+  before_action :authenticate_user!
   def index
-    @reservations = Reservation.all
+    @reservations = current_user.reservations
   end
 
   def new
@@ -9,6 +10,7 @@ class ReservationsController < ApplicationController
 
   def create
     @reservation = Reservation.new(reservation_param)
+    @reservation.user_id = current_user.id
     @room = Room.find(params[:reservation][:room_id])
     @reservation.room = @room
     binding.pry
@@ -32,7 +34,7 @@ class ReservationsController < ApplicationController
     end
   end
 
-  def destroy
+  def show
   end
 
   def confirm
@@ -43,4 +45,8 @@ class ReservationsController < ApplicationController
   def reservation_param
     params.require(:reservation).permit(:check_in, :check_out, :people)
   end
+
+  def destroy
+  end
+
 end

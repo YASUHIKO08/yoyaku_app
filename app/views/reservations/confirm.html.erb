@@ -8,5 +8,6 @@
 	<%= r.text_field :people %>
 	<%= r.submit '予約する' %>
 	<%= r.hidden_field :room_id,value:@room.id %>
+	<%= r.hidden_field :user_id, value: current_user.id %>
 <% end %>
 <%= link_to 'トップページに戻る', '/' %>
