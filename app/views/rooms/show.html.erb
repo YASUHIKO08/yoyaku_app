@@ -1,7 +1,7 @@
 <p><%= image_tag(@room.img_data) %></p>
 <p><%= @room.inn %></p>
 <p><%= @room.address %></p>
-<p><%= @room.charge %></p>
+<p><%= @room.charge %>円</p>
 <p><%= @room.introduction %></p>
 <%= form_with model:@reservation, url: confirm_reservations_path(room_id: @room.id) do |r| %>
 	<%= r.label :check_in, 'チェックイン' %>
@@ -9,7 +9,7 @@
 	<%= r.label :check_out, 'チェックアウト' %>
 	<%= r.text_field :check_out %>
 	<%= r.label :people, '人数' %>
-	<%= r.text_field :people %>
+	<%= r.text_field :people %>人
 	<%= r.submit '予約する' %>
 <% end %>
 <%= link_to 'トップページに戻る', '/' %>

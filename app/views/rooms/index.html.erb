@@ -1,10 +1,13 @@
-<% @rooms.each do |room| %>
-  <table class = room_show >
-    <td><%= image_tag(room.img_data) %></td>
-    <td><%= room.address %></td>
-    <td><%= room.inn %></td>
-    <td><%= room.charge %></td>
-    <td><%= room.introduction %></td>
-    <td><%= link_to "詳細はこちら！", room %></td>
-  </table>
-<% end %>
+<section class = room_container>
+  <div class = room_result>
+    <% @rooms.each do |room| %>
+        <ul>
+          <li><%= image_tag(room.img_data,class: "room_img")%><li>
+          <li><%= room.address %></li>
+          <li><%= room.inn %></li>
+          <li><%= room.charge %>円</li>
+          <li><%= link_to "詳細はこちら！", room %></li>
+        </ul>
+    <% end %>
+  </div>
+</section>
