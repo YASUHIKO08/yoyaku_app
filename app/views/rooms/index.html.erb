@@ -1,5 +1,3 @@
-<%=link_to 'ルーム新規登録ページ', '/rooms/new' %>
-<%=link_to '予約一覧ページ', '/reservations/index' %>
 <% @rooms.each do |room| %>
   <table class = room_show >
     <td><%= image_tag(room.img_data) %></td>

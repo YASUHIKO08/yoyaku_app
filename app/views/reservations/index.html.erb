@@ -1,4 +1,5 @@
 <p>予約一覧</p>
+<div class = room_index>
 <% @reservations.each do |r| %>
   <% room = r.room %>
   <p><%= image_tag(room.img_data) %></p>
@@ -6,4 +7,5 @@
   <p><%= r.check_out %></p>
   <p><%= r.people %></p>
 <% end %>
+</div>
 <%= link_to 'トップページに戻る', '/' %>
