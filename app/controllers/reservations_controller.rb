@@ -14,10 +14,10 @@ class ReservationsController < ApplicationController
     @room = Room.find(params[:reservation][:room_id])
     @reservation.room = @room
     binding.pry
-    if @reservation.save!
+    if @reservation.save
       redirect_to :reservations
     else
-      render "new"
+      render "reservations/confirm"
     end
   end
 
@@ -39,11 +39,21 @@ class ReservationsController < ApplicationController
 
   def confirm
     @room = Room.find(params[:room_id])
+    @user = current_user
     @reservation = Reservation.new(reservation_param)
+    @reservation.room_id = @room.id
+    @reservation.user_id = @user.id
+    if @reservation.valid?
+      # バリデーションが通れば確認画面を表示
+      render 'confirm'
+    else
+      # バリデーションエラーがあれば元のページに戻すかエラーメッセージを表示
+      render 'rooms/show'
+    end
   end
 
   def reservation_param
-    params.require(:reservation).permit(:check_in, :check_out, :people)
+    params.require(:reservation).permit(:check_in, :check_out, :people, :charge)
   end
 
   def destroy

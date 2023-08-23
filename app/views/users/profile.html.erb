@@ -1,0 +1,27 @@
+<section class = user_container>
+  <div class = user_config>
+    <h2>プロフィール情報</h2>
+    <%= link_to 'アカウント設定へ' , '/users/account' %>
+  </div>
+  <%= form_with model:@users do |u| %>
+    <div class = user_content>
+      <span>プロフィール画像</span>
+      <% if current_user.img_data.attached? %>
+        <%= image_tag current_user.img_data %>
+      <% else %>
+        <%= image_tag "default-img.png" %>
+      <% end %>
+    </div>
+    <div class = user_content>
+      <span><%= u.label :nickname, 'ユーザー名' %></span>
+      <span><%= current_user.nickname %></span>
+    </div>
+    <div class = user_content>
+      <span><%= u.label :introduction, '自己紹介　' %></span>
+      <span><%= current_user.introduction %></span>
+    </div>
+    <div class = user_edit_link>
+      <%= link_to '登録情報を変更する' , user_profile_edit_path %>
+    </div>
+  <% end %>
+</section>

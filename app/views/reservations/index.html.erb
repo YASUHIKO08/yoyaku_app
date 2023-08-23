@@ -1,11 +1,31 @@
-<p>予約一覧</p>
-<div class = room_index>
-<% @reservations.each do |r| %>
-  <% room = r.room %>
-  <p><%= image_tag(room.img_data) %></p>
-  <p><%= r.check_in %></p>
-  <p><%= r.check_out %></p>
-  <p><%= r.people %></p>
-<% end %>
-</div>
+<section class = register_container>
+  <h3>予約一覧</h3>
+  <table class = register_table>
+    <thead>
+      <tr>
+        <th>画像</th>
+        <th>施設名</th>
+        <th>紹介文</th>
+        <th>合計料金</th>
+        <th>チェックイン</th>
+        <th>チェックアウト</th>
+        <th>登録時間</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @reservations.each do |r| %>
+      <% room = r.room %>
+      <tr>
+        <td><%= image_tag(room.img_data,class: "inn_img") %></td>
+        <td><%= room.inn %></td>
+        <td><%= room.introduction %></td>
+        <td><%= r.charge %>円</td>
+        <td><%= r.check_in.strftime("%Y/%m/%d") %></td>
+        <td><%= r.check_out.strftime("%Y/%m/%d") %></td>
+        <td><%= r.created_at.to_s(:datetime_jp) %></td>
+      <tr>
+      <% end %>
+    </tbody>
+  </table>
 <%= link_to 'トップページに戻る', '/' %>
+</section>

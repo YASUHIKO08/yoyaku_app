@@ -1,0 +1,19 @@
+<section class = user_container>
+  <h2>アカウント設定</h2>
+  <%= form_with model: current_user, url: user_profile_update_path, local:true do |u| %>
+  <div class = user_content>
+    <span><%= u.label :img_data, '画像' %></span>
+    <span><%= u.file_field :img_data %></span>
+  </div>
+  <div class = user_content>
+    <span><%= u.label :nickname, 'ユーザー名' %></span>
+    <span><%= u.text_field :nickname %></span>
+  </div>
+  <div class = user_content>
+    <span><%= u.label :introduction, '自己紹介　' %></span>
+    <span><%= u.text_area :introduction %></span>
+  </div>
+  <div class = user_edit_link>
+    <%= u.submit "編集を完了する" %>
+  </div>
+<% end %>

@@ -1,6 +1,16 @@
 class RoomsController < ApplicationController
+  before_action :search
+
+  def search
+    @q = Room.ransack(params[:q])
+  end
+
   def index
-    @rooms = Room.all
+    @rooms = @q.result(destinct:true)
+  end
+
+  def own
+    @rooms = current_user.rooms
   end
 
   def new
@@ -11,8 +21,7 @@ class RoomsController < ApplicationController
   def create
     @room = Room.new(room_params)
     @room.user_id = current_user.id
-    binding.pry
-    if @room.save!
+    if @room.save
       redirect_to :rooms
     else
       render "new"

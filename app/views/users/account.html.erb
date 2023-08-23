@@ -1,0 +1,19 @@
+<section class = user_container>
+  <div class = user_config>
+    <h2>アカウント情報</h2>
+    <%= link_to 'プロフィール設定へ' , '/users/profile' %>
+  </div>
+  <%= form_with model:@users do |u| %>
+    <div class = user_content>
+      <span><%= u.label :email, 'メールアドレス' %></span>
+      <span><%= current_user.email %></span>
+    </div>
+    <div class = user_content>
+      <span><%= u.label :password, '　パスワード　' %></span>
+      <span>* * * * * * * * * </span>
+    </div>
+    <div class = user_edit_link>
+      <%= link_to '登録情報を変更する' , edit_user_registration_path %>
+    </div>
+  <% end %>
+</section>

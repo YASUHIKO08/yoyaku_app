@@ -1,13 +1,36 @@
-<p>予約ページ</p>
-<%= form_with model:@reservation do |r| %>
-	<%= r.label :check_in, 'チェックイン' %>
-	<%= r.text_field :check_in %>
-	<%= r.label :check_out, 'チェックアウト' %>
-	<%= r.text_field :check_out %>
-	<%= r.label :people, '人数' %>
-	<%= r.text_field :people %>
-	<%= r.submit '予約する' %>
-	<%= r.hidden_field :room_id,value:@room.id %>
-	<%= r.hidden_field :user_id, value: current_user.id %>
-<% end %>
-<%= link_to 'トップページに戻る', '/' %>
+<section class = confirm_container>
+	<p class = confirm_title>予約内容の確認</p>
+<div class = confirm_content>
+	<%= render "shared/error", obj: @reservation %>
+	<%= form_with model:@reservation do |r| %>
+		<div class = confirm_form>
+			<p><%= r.label :check_in, 'チェックイン' %></p>
+			<p><%= @reservation.check_in.strftime("%Y/%m/%d") %></p>
+		</div>
+		<div class = confirm_form>
+			<p><%= r.label :check_out, 'チェックアウト' %></p>
+			<p><%= @reservation.check_out.strftime("%Y/%m/%d") %></p>
+		</div>
+		<div class = confirm_form>
+			<p>宿泊日数</p>
+			<p><%= (@reservation.check_out - @reservation.check_in).to_i %>日</p>
+		</div>
+		<div class = confirm_form>
+			<p>合計料金</p>
+			<p><%= @reservation.people * @room.charge %>円</p>
+		</div>
+		<div class = confirm_form>
+			<p><%= r.label :people, '人数' %></p>
+			<p><%= @reservation.people %>人</p>
+		</div>
+			<p class = confirm_submit_text>上記内容でよろしければ「予約する」ボタンを押してください。</p>
+		<p><%= r.submit '予約する' %></p>
+			<%= r.hidden_field :room_id,value:@room.id %>
+			<%= r.hidden_field :check_in %>
+			<%= r.hidden_field :check_out %>
+			<%= r.hidden_field :charge, value: @reservation.people * @room.charge %>
+			<%= r.hidden_field :people %>
+			<%= r.hidden_field :user_id, value: current_user.id %>
+	<% end %>
+</div>
+<%= link_to 'キャンセル', :back %>
