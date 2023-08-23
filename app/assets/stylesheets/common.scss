@@ -97,7 +97,8 @@
 //検索結果の配列
 .room_result{
   display: flex;
-  justify-content: center;
+  justify-content: safe space-between;
+  flex-wrap: wrap;
 }
 
 .room_result ul{
@@ -107,11 +108,7 @@
   height:520px;
   list-style:none;
   margin-top: 30px;
-  margin-left: 50px;
-}
-
-.room_result ul:first-child{
-  margin-left: 0px;
+  margin-left: 60px;
 }
 
 .search_result{

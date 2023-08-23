@@ -14,7 +14,11 @@
       <% @rooms.each do |room| %>
         <ul>
           <li class = search_result>
-            <%= image_tag(room.img_data,class: "room_img")%>
+            <% if room.img_data.attached? %>
+              <%= image_tag(room.img_data,class: "room_img")%>
+            <% else %>
+              <%= image_tag "default-room.png",class: "room_img" %>
+            <% end %>
             <div class = room_content>
               <p class = room_name><%= room.inn %></p>
               <p class = room_address><%= room.address %></p>
