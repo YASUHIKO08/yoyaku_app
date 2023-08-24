@@ -13,7 +13,11 @@
   <tbody>
     <% @rooms.each do |room| %>
     <tr>
-      <td><%= image_tag(room.img_data,class: "inn_img")%></td>
+    <% if room.img_data.attached? %>
+		  <td><%= image_tag(room.img_data,class: "inn_img")%></td>
+	  <% else %>
+		  <td><%= image_tag "default-room.png",class: "inn_img" %></td>
+	  <% end %>
       <td><%= room.inn %></td>
       <td><%= room.introduction %></td>
       <td><%= room.charge %>円</td> 
