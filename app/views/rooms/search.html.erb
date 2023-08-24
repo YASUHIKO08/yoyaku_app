@@ -1,0 +1,49 @@
+<section class = room_container>
+<div class = FV_content>
+  <h2 class = FV_title>さあ、出かけよう</h2>
+<%= search_form_for @q do |f| %>
+  <div class = search_form>
+    <%= f.text_field :address_cont, placeholder:"エリアを入力" %>
+    <%= f.submit "検索" %>
+  </div>
+<% end %>
+</div>
+
+<section class = area_container>
+  <div class = area_title>
+    <h2>おすすめエリア</h2>
+  </div>
+  <div class = area_search>
+    <div class = area_content>
+      <p>大　阪</p>
+      <%= link_to image_tag("osaka.jpg"), rooms_index_path(q: { address_cont: '大阪' }) %>
+    </div>
+    <div class = area_content>
+      <p>京　都</p>
+      <%= link_to image_tag("kyoto.jpg"), rooms_index_path(q: { address_cont: '京都' }) %>
+    </div>
+    <div class = area_content>
+      <p>東　京</p>
+      <%= link_to image_tag("tokyo.jpg"), rooms_index_path(q: { address_cont: '東京' }) %>
+    </div>
+    <div class = area_content>
+      <p>札　幌</p>
+      <%= link_to image_tag("sapporo.jpg"), rooms_index_path(q: { address_cont: '札幌' }) %>
+    </div>
+  </div>
+</section>
+
+<% if @rooms.present? %>
+  <div class = room_result>
+    <% @rooms.each do |room| %>
+      <ul>
+        <li><%= image_tag(room.img_data,class: "room_img")%><li>
+        <li><%= room.address %></li>
+        <li><%= room.inn %></li>
+        <li><%= room.charge %>円</li>
+        <li><%= link_to "詳細はこちら！", room %></li>
+      </ul>
+    <% end %>
+  </div>
+<% end %>
+</section>

@@ -1,0 +1,473 @@
+*{
+    font-family: sans-serif;
+    font-size: 14px;
+    margin:0px;
+    padding:0px;
+}
+
+//バリデーションの設定
+.field_with_errors {
+  display: contents;
+}
+
+//----------------------------------------------
+//ヘッダー共通項目
+.common_header{
+  display: flex;
+  justify-content: space-between;
+  background-color: indigo;
+  height: 50px;
+}
+
+//ヘッダーリンク設定
+.user_link{
+  color:white;
+  line-height:50px;
+  margin-left:10px;
+  text-decoration: none;
+}
+
+//プルダウン文字設定
+.menu_link{
+  color:black;
+}
+
+.account_img{
+  border-radius: 10px;
+  margin-right: 10px;
+  width:30px;
+}
+
+//----------------------------------------------
+//ファーストビュー(room/search)
+//背景画像
+.FV_content{
+  background-image: url("haikei.jpg");
+  background-size: cover;
+  background-position: center;
+  height:500px;
+}
+
+//タイトル
+.FV_title{
+  color:white;
+  text-align: center;
+  padding-top:80px;
+}
+
+
+//検索窓
+.search_form{
+  text-align: center;
+  padding-top:30px;
+}
+
+//エリア検索
+.area_container{
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.area_title{
+  margin-left: 30px;
+  margin-bottom: 20px;
+}
+
+.area_search{
+  width:80%;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px auto;
+}
+
+.area_search img{
+  border-radius: 20px;
+  width:200px;
+  height:250px;
+  object-fit: cover;
+}
+
+.area_content p{
+  font-size: 20px;
+}
+
+//----------------------------------------------
+//検索結果(room/index)
+//ルームの詳細画面
+.room_container{
+  width: 100%;
+  margin:0 auto;
+}
+
+//検索結果の配列
+.room_result{
+  display: flex;
+  justify-content: safe space-between;
+  flex-wrap: wrap;
+}
+
+.room_result ul{
+  box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.35);
+  border:1px solid black;
+  border-radius: 50px;
+  height:520px;
+  list-style:none;
+  margin-top: 30px;
+  margin-left: 60px;
+}
+
+.search_result{
+  width:400px;
+}
+
+//検索結果、画像
+.room_img{
+  width: 400px;
+  height:300px;
+  object-fit:cover;
+  border-radius: 50px 50px 0px 0px;
+  padding-bottom: 10px;
+}
+
+//検索結果のカウント
+.room_count{
+  text-align: center;
+  padding: 10px;
+}
+
+.room_count span{
+  font-size: 20px;
+}
+
+.room_content{
+  margin-left: 10px;
+}
+
+.room_name{
+  font-size: 24px;
+}
+
+.room_address{
+  font-size: 16px;
+  margin-left: 20px;
+}
+
+.room_introduction{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  margin-left:20px;
+  margin-right: 20px;
+}
+
+.room_charge{
+  text-align: right;
+  margin-right: 30px;
+}
+
+.room_charge span{
+  font-size: 18px;
+}
+
+.room_link{
+  text-align: right;
+  margin-right: 20px;
+}
+
+//----------------------------------------------
+//登録一覧設定(room/own,resarvation/index)
+//全体
+.register_container{
+  width:1200px;
+  margin-top:50px;
+  margin:0 auto;
+}
+
+//予約、登録一覧画像
+.inn_img{
+  width:150px;
+}
+
+//テーブルの設定
+.register_table{
+  width:100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.register_table th{
+  border-bottom: 1px solid black;
+  text-align: center;
+  padding-right: 50px;
+  padding-bottom: 10px;
+}
+
+.register_table td{
+  text-align: center;
+  padding-right: 50px;
+  padding-bottom: 10px;
+}
+
+//----------------------------------------------
+//詳細画面(rooms/show)
+//全体
+.room_show_container{
+  width: 800px;
+  margin:0 auto;
+}
+
+//バリデーション
+.validate_message{
+  box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.35);
+  margin-top: 20px;
+  background-color: aquamarine;
+  text-align: center;
+}
+
+.validate_message ul{
+  list-style: none;
+}
+
+
+//施設情報、入力フォーム
+.show_content{
+  box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.35);
+  background-color: lemonchiffon;
+  padding:10px;
+}
+
+.show_room_content{
+  list-style: none;
+}
+
+.room_show_name{
+  font-size: 24px;
+}
+
+.room_show_address{
+  padding-left:25px;
+  font-size: 18px;
+}
+
+.room_show_charge{
+  display: block;
+  text-align: right;
+  padding-right: 50px;
+  font-size: 20px;
+}
+
+.room_show_introduction{
+  padding-left:25px;
+  font-size: 18px;
+}
+//画像
+.show_room_img{
+  box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.35);
+  display: block;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+//入力フォーム全体
+.reservation_form{
+  display:flex;
+  justify-content: center;
+}
+
+//入力フォーム
+.input_form{
+  padding-right: 20px;
+}
+
+//送信フォーム
+.room_submit{
+  display:block;
+  text-align: right;
+  padding-right: 20px;
+}
+
+//----------------------------------------------
+//確認ページ(confirm)
+.confirm_container{
+  width: 800px;
+  margin:0 auto;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.confirm_form{
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10px;
+}
+
+.confirm_form p,label{
+  font-size: 20px;
+}
+
+.confirm_title{
+  font-size: 24px;
+}
+
+.confirm_submit_text{
+  font-size: 20px;
+}
+
+//----------------------------------------------
+//ユーザー新規作成(sign_up)
+.sign_link{
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+.sign_up_container{
+  width:800px;
+  margin-top: 20px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.signup_content{
+  margin-left:20px;
+  margin-bottom: 20px;
+}
+
+.signup_field{
+  width:700px;
+  height:30px;
+}
+
+.signup_actions{
+  text-align: right;
+  margin-right: 20px;
+  margin-bottom: 10px;
+}
+
+.signup_actions input{
+  font-size: 20px;
+}
+
+//----------------------------------------------
+//ログイン(sign_in)
+.login_container{
+  width:800px;
+  margin-top: 20px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.signin_content{
+  margin-left:20px;
+  margin-bottom: 20px;
+}
+
+.signin_field{
+  width:700px;
+  height:30px;
+}
+
+.login_field{
+  text-align: right;
+}
+
+.signin_actions{
+  text-align: right;
+}
+
+//----------------------------------------------
+//アカウント設定(account)
+.user_container{
+  width: 700px;
+  margin-top: 20px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.user_config{
+  display: flex;
+  justify-content: space-between;
+}
+
+.user_container h2{
+  margin-bottom: 20px;
+}
+
+.user_content{
+  margin-left:100px;
+  margin-bottom: 20px;
+}
+
+.user_content span:first-child{
+  margin-right: 20px;
+  font-size: 24px;
+}
+
+.user_edit_link{
+  text-align: right;
+}
+
+.user_edit_link a{
+  font-size: 20px;
+  text-decoration: none;
+}
+
+//----------------------------------------------
+//ルーム新規作成(rooms/new)
+.room_new_container{
+  width: 750px;
+  margin-top: 20px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.room_new_title{
+  font-size: 24px;
+  margin-bottom: 40px;
+}
+
+.room_new_data{
+  margin-left: 30px;
+  margin-bottom: 30px;
+}
+
+.room_new_data span:first-child{
+  margin-right: 20px;
+}
+
+.room_new_data input{
+  width: 80%;
+}
+
+.room_new_submit{
+  text-align: center;
+}
+
+//----------------------------------------------
+//ユーザー情報編集(users/edit)
+.user_edit_container{
+  width: 750px;
+  margin-top: 20px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.user_edit_title{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.user_edit_field{
+  margin-left: 30px;
+  margin-bottom: 30px;
+}
+
+.user_edit_field input{
+  width: 80%;
+}
+
+.user_edit_submit{
+  text-align: right;
+  margin-right: 30px;
+}

@@ -1,0 +1,36 @@
+<section class = room_container>
+  <div class = search_form>
+    <%= search_form_for @q do |f| %>
+      <%= f.text_field :address_cont, placeholder:"エリアを入力" %>
+      <%= f.text_field :inn_or_introduction_cont, placeholder:"キーワードを入力" %>
+      <%= f.submit "検索" %>
+    <% end %>
+  </div>
+  <div class = room_count>
+    <span>合計<%= @rooms.count(:id) %>件の施設が見つかりました。</span>
+  </div>
+  <% if @rooms.present? %>
+    <div class = room_result>
+      <% @rooms.each do |room| %>
+        <ul>
+          <li class = search_result>
+            <% if room.img_data.attached? %>
+              <%= image_tag(room.img_data,class: "room_img")%>
+            <% else %>
+              <%= image_tag "default-room.png",class: "room_img" %>
+            <% end %>
+          <div class = room_content>
+              <p class = room_name><%= room.inn %></p>
+              <p class = room_address><%= room.address %></p>
+              <p class = room_introduction><%= room.introduction %></p>
+              <p class = room_charge><span>¥<%= room.charge %>円〜</span></p>
+              <p class = room_link><%= link_to "詳細はこちら！", room %></p>
+            </div>
+          </li>
+        </ul>
+      <% end %>
+    </div>
+  <% else %>
+    <p>見つかりませんでした</p>
+  <% end %>
+</section>

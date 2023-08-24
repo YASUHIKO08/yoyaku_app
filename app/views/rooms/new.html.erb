@@ -1,0 +1,34 @@
+<section class = room_new_container>
+	<div class = validate_message>
+		<span><%= render "shared/error", obj: @room %></span>
+	</div>
+		<p class = room_new_title>ルーム新規登録ページ</p>
+	<%= form_with model:@room do |room| %>
+	<div class = room_new_content>
+		<div class = room_new_data>
+			<span><%= room.label :img_data, '画　像' %></span>
+			<span><%= room.file_field :img_data %></span>
+		</div>
+		<div class = room_new_data>
+			<span><%= room.label :address, '住　所' %></span>
+			<span><%= room.text_field :address %></span>
+		</div>
+		<div class = room_new_data>
+			<span><%= room.label :inn, '施設名' %></span>
+			<span><%= room.text_field :inn %></span>
+		</div>
+		<div class = room_new_data>
+			<span><%= room.label :charge, '料　金' %></span>
+			<span><%= room.text_field :charge  %></span>		
+		</div>
+		<div class = room_new_data>
+			<span><%= room.label :introduction, '紹介文' %></span>
+			<span><%= room.text_field :introduction %></span>
+		</div>
+		<div class = room_new_submit>
+			<%= room.hidden_field:user_id, value:current_user.id %>
+			<%= room.submit '登　録' %>
+		</div>
+	<% end %>
+	<%= link_to 'トップページに戻る', '/' %>
+</section>

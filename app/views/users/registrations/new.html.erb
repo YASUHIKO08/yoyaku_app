@@ -1,0 +1,32 @@
+<section class = sign_up_container>
+  <h2>新規登録</h2>
+
+  <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user',local: true do |f| %>
+    <%= render "users/shared/error_messages", resource: resource %>
+      <div class="signup_content">
+        <%= f.label :ユーザー名 %><br />
+        <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname",class:"signup_field" %>
+      </div>
+
+      <div class="signup_content">
+        <%= f.label :メールアドレス %><br />
+        <%= f.text_field :email, autofocus: true, autocomplete: "email" ,class:"signup_field"%>
+      </div>
+
+      <div class="signup_content">
+        <%= f.label :パスワード %>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> 文字以上)</em>
+        <% end %><br />
+        <%= f.text_field :password, autocomplete: "new-password" ,class:"signup_field"%>
+      </div>
+
+      <div class="signup_content">
+        <%= f.label :パスワード（再確認） %><br />
+        <%= f.text_field :password_confirmation, autocomplete: "new-password" ,class:"signup_field"%>
+      </div>
+    <div class="signup_actions">
+      <%= f.submit "アカウントを新規作成" %>
+    </div>
+  <% end %>
+</section>

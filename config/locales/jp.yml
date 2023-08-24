@@ -1,0 +1,15 @@
+ja:
+  activerecord:
+    models:
+      reservation: 予約
+      room: ルーム
+    attributes:
+      reservation:
+        check_in: チェックイン
+        check_out: チェックアウト
+        people: 人数
+      room:
+        inn: 施設名
+        address: 住所
+        introduction: 紹介文
+        charge: 料金
