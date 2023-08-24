@@ -5,6 +5,11 @@
     padding:0px;
 }
 
+//バリデーションの設定
+.field_with_errors {
+  display: contents;
+}
+
 //----------------------------------------------
 //ヘッダー共通項目
 .common_header{

@@ -13,7 +13,6 @@ class ReservationsController < ApplicationController
     @reservation.user_id = current_user.id
     @room = Room.find(params[:reservation][:room_id])
     @reservation.room = @room
-    binding.pry
     if @reservation.save
       redirect_to :reservations
     else

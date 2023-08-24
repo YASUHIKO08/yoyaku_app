@@ -6,8 +6,7 @@ class User < ApplicationRecord
 
   validates :nickname, presence: true
   validates :email, presence: true
-  validates :password, presence: true
-
+  validates :password, presence: true, on: :create
 
   has_one_attached:img_data
   has_many:reservations

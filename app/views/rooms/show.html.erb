@@ -4,7 +4,7 @@
 	</div>
 		<%= link_to '←　戻 る', :back %>
 	<% if @room.img_data.attached? %>
-		<p><%= image_tag(room.img_data,class: "show_room_img")%></p>
+		<p><%= image_tag(@room.img_data,class: "show_room_img")%></p>
 	<% else %>
 		<p><%= image_tag "default-room.png",class: "show_room_img" %></p>
 	<% end %>
